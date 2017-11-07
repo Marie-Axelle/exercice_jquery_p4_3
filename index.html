@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="jquery-3.2.1.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Formulaire(3)</title>
+</head>
+<body>
+  <form class="cmxform" id="signupForm" method="get" action="">
+    <fieldset>
+      <legend>Formulaire</legend>
+      <p>
+        <label for="firstname">Prénom : </label>
+        <input id="firstname" name="firstname" type="text">
+      </p>
+      <p>
+        <label for="lastname">Nom :</label>
+        <input id="lastname" name="lastname" type="text">
+      </p>
+      <p>
+        <label for="email">Email : </label>
+        <input id="email" name="email" type="email">
+      </p>
+      <p>
+        <label for="PhoneNumber">Numero de téléphone : </label>
+        <input id="phone" name="phone" type="text">
+      </p>
+      <button id="envoyer" type="submit" name="envoyer">Envoyer</button>
+      <script>
+      $(function(){
+        $('#email').focusout(function(){
+          var myRegex = /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/;
+          if(!myRegex.test(this.value)){
+            $('#email').css('background-color', 'red');
+            return false;
+          }
+          else{
+            $('#email').css('background-color','green');
+            return true;
+          }
+        });
+        $('#phone').focusout(function(){
+          var reg = /^0[1-9][0-9]{8}$/;
+          if(!reg.test(this.value)){
+            $('#phone').css('background-color', 'red');
+            return false;
+          }
+          else{
+            $('#phone').css('background-color','green');
+            return true;
+          }
+        });
+        $('#firstname').focusout(function(){
+          var reg3 = /^[a-zéèàùûêâôë]{1}[a-zéèàùûêâôë \'-]*[a-zéèàùûêâôë]$/;
+          if(!reg3.test(this.value)){
+            $('#firstname').css('background-color', 'red');
+            return false;
+          }
+          else{
+            $('#firstname').css('background-color','green');
+            return true;
+          }
+        });
+        $('#lastname').focusout(function(){
+          var reg3 = /^[a-zéèàùûêâôë]{1}[a-zéèàùûêâôë \'-]*[a-zéèàùûêâôë]$/;
+          if(!reg3.test(this.value)){
+            $('#lastname').css('background-color', 'red');
+            return false;
+          }
+          else{
+            $('#lastname').css('background-color','green');
+            return true;
+          }
+        });
+      });
+      </script>
+    </body>
+    </html>
